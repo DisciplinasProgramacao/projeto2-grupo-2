@@ -76,8 +76,18 @@ public class Grafo {
         return this.vertices.find(idVertice);
     }
 
+
+
+
+    /**
+     * (Precisa testar) 
+     * @param verticeA
+     * @param verticeB
+     * @return
+     */
     public Aresta existeAresta(int verticeA, int verticeB){
-       return null;
+        Vertice saida = this.existeVertice(verticeA);
+        return saida.existeAresta(verticeB);
     }
     
     /**
