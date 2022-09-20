@@ -50,6 +50,12 @@ public class Grafo {
     }
 
     public void salvar(String nomeArquivo){
+        //this.name;
+        //this.vertices.size();
+        //How am I going to load the edges from the graph?
+        //How am I going to save the graphs at the end of the file? 
+        
+
         
     }
     /**
