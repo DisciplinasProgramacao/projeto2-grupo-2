@@ -23,7 +23,7 @@ public class GrafoPonderado extends GrafoMutavel {
     public void carregar(String nomeArquivo) {
         Scanner scanner = new Scanner(new File(nomeArquivo));
         scanner.useDelimiter(";");
-        while(scanner.hasNext()){
+        while (scanner.hasNext()) {
             System.out.println(scanner.next());
         }
         scanner.close();
