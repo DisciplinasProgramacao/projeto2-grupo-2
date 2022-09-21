@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class GrafoPonderado extends GrafoMutavel {
@@ -21,12 +22,15 @@ public class GrafoPonderado extends GrafoMutavel {
     }
 
     public void carregar(String nomeArquivo) {
-        Scanner scanner = new Scanner(new File(nomeArquivo));
-        scanner.useDelimiter(";");
-        while (scanner.hasNext()) {
-            System.out.println(scanner.next());
+        try (Scanner scanner = new Scanner(new File(nomeArquivo))) {
+            scanner.useDelimiter(";");
+            while (scanner.hasNext()) {
+                System.out.println(scanner.next());
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        scanner.close();
     }
 
 }
