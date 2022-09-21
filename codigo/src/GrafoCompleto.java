@@ -5,22 +5,29 @@ public class GrafoCompleto extends Grafo {
         super(nome);
         this.ordem = ordem;
 
-        // adiciona vertices
-        for (int i = 1; i <= this.ordem; i++) {
-            addVertice(i);
-        }
+        for(int i = 1; i <= this.ordem; i++){
+            Vertice novo = new Vertice(i);
+        this.vertices.add(i, novo);
 
-        // adiciona arestas
-        for (int i = 1; i <= this.ordem; i++) {
-            for (int j = (i + 1); j <= this.ordem; j++) {
-                addAresta(i, j);
+        for(int j = (i + 1); j <= this.ordem; j++) {
+            // addAresta(i, j);
+
+            boolean adicionou = false;
+            Vertice saida = this.existeVertice(i);
+            Vertice chegada = this.existeVertice(j);
+            if (saida != null && chegada != null) {
+                saida.addAresta(j);
+                chegada.addAresta(i);
+                adicionou = true;
                 qtdeArestas++;
             }
         }
+        }
+        
     }
 
     public boolean completo() {
-
+        return true;
     }
 
     public Aresta existeAresta(int verticeA, int verticeB) {
