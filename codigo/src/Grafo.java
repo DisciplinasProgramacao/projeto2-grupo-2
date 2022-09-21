@@ -1,3 +1,6 @@
+import java.io.File;
+import java.util.Scanner;
+
 /** 
  * MIT License
  *
@@ -37,11 +40,22 @@ public class Grafo {
         this.vertices = new ABB<>();
     }
 
-    public void carregar(String nomeArquivo){
-
+    public void carregar(String nomeArquivo) throws Exception{
+        Scanner scanner = new Scanner(new File(nomeArquivo));
+        scanner.useDelimiter(";");
+        while(scanner.hasNext()){
+            System.out.println(scanner.next());
+        }
+        scanner.close();
     }
 
     public void salvar(String nomeArquivo){
+        //this.name;
+        //this.vertices.size();
+        //How am I going to load the edges from the graph?
+        //How am I going to save the graphs at the end of the file? 
+        
+
         
     }
     /**
@@ -76,8 +90,18 @@ public class Grafo {
         return this.vertices.find(idVertice);
     }
 
+
+
+
+    /**
+     * (Precisa testar) 
+     * @param verticeA
+     * @param verticeB
+     * @return
+     */
     public Aresta existeAresta(int verticeA, int verticeB){
-       return null;
+        Vertice saida = this.existeVertice(verticeA);
+        return saida.existeAresta(verticeB);
     }
     
     /**
