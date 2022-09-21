@@ -14,6 +14,7 @@ public class GrafoCompleto extends Grafo{
         for(int i = 1; i <= this.ordem; i++) {
             for(int j = (i+1); j <= this.ordem; j++) {
                 addAresta(i, j);
+                qtdeArestas++;
             }
         }
     }

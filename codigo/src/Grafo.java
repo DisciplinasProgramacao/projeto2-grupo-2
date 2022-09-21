@@ -5,12 +5,14 @@ public abstract class Grafo {
 
     public final String nome;
     protected ABB<Vertice> vertices;
+    protected int qtdeArestas;
 
     /**
      * Construtor. Cria um grafo vazio com capacidade para MAX_VERTICES
      */
     public Grafo(String nome){
         this.nome = nome;
+        qtdeArestas = 0;
         this.vertices = new ABB<>();
     }
 
@@ -51,8 +53,7 @@ public abstract class Grafo {
     }
     
     public int tamanho() {
-        vertices.size();
-        return 0;
+        return ordem() + qtdeArestas;
     }
 
     public int ordem(){

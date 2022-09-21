@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public abstract class GrafoMutavel extends Grafo {
 
+
+
     public GrafoMutavel(String nome){
         super(nome);
     }
@@ -21,6 +23,7 @@ public abstract class GrafoMutavel extends Grafo {
             saida.addAresta(destino);
             chegada.addAresta(origem);
             adicionou = true;
+            qtdeArestas++;
         }
         
         return adicionou;
