@@ -1,6 +1,3 @@
-import java.io.File;
-import java.util.Scanner;
-
 /** 
  * Classe básica para um Grafo simples
  */
@@ -41,17 +38,16 @@ public abstract class Grafo {
         return resposta;
     }
 
-    public abstract Grafo subGrafo(Lista<Vertice> vertices){
-        Grafo subgrafo = new Grafo("Subgrafo de "+this.nome);       
-        return subgrafo;
-    }
+    public abstract Grafo subGrafo(Lista<Vertice> vertices);
 
     public boolean eureliano() {
+
+        return false;
 
     }
 
     public boolean caminhoEureliano() {
-
+        return false;
     }
     
     public int tamanho() {

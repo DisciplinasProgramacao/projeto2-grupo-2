@@ -1,4 +1,11 @@
+import java.io.File;
+import java.util.Scanner;
+
 public abstract class GrafoMutavel extends Grafo {
+
+    public GrafoMutavel(String nome){
+        super(nome);
+    }
     
     /**
      * Adiciona uma aresta entre dois vértices do grafo. 
@@ -38,11 +45,11 @@ public abstract class GrafoMutavel extends Grafo {
     }
 
     public boolean delAresta(int origem, int destino) {
-
+       return false;
     }
 
     public boolean delVertice(int idVertice) {
-
+        return false;
     }
 
     public void salvar(String nomeArquivo){
