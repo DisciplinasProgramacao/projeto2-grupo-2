@@ -14,10 +14,12 @@ public class ABB<T> {
 
     public boolean add(int key, T newElement){
         boolean result = false;
-        if(!this.data.containsKey(key)){
+
+        if(!this.data.containsKey(key)) {
             this.data.put(key, newElement);
             result = true;
         }
+
         return result;
     }
     

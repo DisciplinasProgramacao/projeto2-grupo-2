@@ -27,7 +27,7 @@
  */
 public class Grafo {
     public final String nome;
-    private ABB<Vertice> vertices;
+    protected ABB<Vertice> vertices;
 
     /**
      * Construtor. Cria um grafo vazio com capacidade para MAX_VERTICES
@@ -87,7 +87,7 @@ public class Grafo {
     public boolean completo(){
         boolean resposta = true;
         
-       return resposta;
+        return resposta;
     }
 
     public Grafo subGrafo(Lista<Vertice> vertices){
@@ -98,6 +98,7 @@ public class Grafo {
     }
     
     public int tamanho(){
+        vertices.size();
         return 0;
     }
 
