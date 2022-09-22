@@ -19,6 +19,7 @@ public class Lista<T> {
     }
 
 
+
     // validar
     // public int size() {
     //     return this.data.size();
