@@ -59,7 +59,7 @@ public abstract class Grafo {
 
         int qtdeArestas = 0;
         
-        for (int i = 0; i < vert.length; i++){
+        for (int i = 1; i < vert.length; i++){
             qtdeArestas += vert[i].grau();
         }
 
