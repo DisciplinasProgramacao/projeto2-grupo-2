@@ -21,7 +21,6 @@ public class GrafoCompleto extends Grafo {
                     saida.addAresta(j);
                     chegada.addAresta(i);
                     adicionou = true;
-                    qtdeArestas++;
                 }
             }
         }

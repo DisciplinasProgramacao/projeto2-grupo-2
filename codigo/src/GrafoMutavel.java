@@ -22,7 +22,6 @@ public abstract class GrafoMutavel extends Grafo {
             saida.addAresta(destino);
             chegada.addAresta(origem);
             adicionou = true;
-            qtdeArestas++;
         }
 
         return adicionou;
