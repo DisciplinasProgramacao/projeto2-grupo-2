@@ -24,10 +24,18 @@ public class GrafoCompleto extends Grafo {
                 }
             }
         }
-
     }
 
     public boolean completo() {
+        Vertice[] vert = new Vertice[vertices.size()];
+        vertices.allElements(vert);
+        
+        for (int i = 1; i < vert.length; i++){
+            if(vert[i].grau() != (vertices.size()-1)) {
+                return false;
+            }
+            break;
+        }
         return true;
     }
 
@@ -51,7 +59,7 @@ public class GrafoCompleto extends Grafo {
 
     public GrafoCompleto gerarSubGrafo(Lista<Vertice> vertices) throws CloneNotSupportedException {
 
-        GrafoCompleto completo = new GrafoCompleto(this.nome,this.ordem);
+        GrafoCompleto completo = new GrafoCompleto(this.nome, this.ordem);
         GrafoCompleto subgrafo;
 
         // Copiar o grafo gerado
