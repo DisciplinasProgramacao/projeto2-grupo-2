@@ -42,8 +42,39 @@ public class GrafoCompleto extends Grafo {
     public boolean eureliano() {
 
     }
+    
 
-    public GrafoCompleto subGrafo(Lista verticesLista) {
+    // public GrafoCompleto subGrafo(Lista<Vertice> vertices) {
+    //     GrafoCompleto subgrafo = new GrafoCompleto("Subgrafo de " + this.nome, this.ordem);
+    //     return subgrafo;
+    // }
+
+    public GrafoCompleto gerarSubGrafo(Lista<Vertice> vertices) throws CloneNotSupportedException {
+
+        GrafoCompleto completo = new GrafoCompleto(this.nome,this.ordem);
+        GrafoCompleto subgrafo;
+
+        // Copiar o grafo gerado
+
+        subgrafo = (GrafoCompleto) completo.clone();
+
+
+
+        // Fazer um loop pela lista recebida 
+
+        // for(int i=0;i<vertices.size();i++) {
+        //     super.existeVertice(vertices.get(i));
+    
+
+        // }
+
+          // Identificar se a key = valor na ABB 
+          
+          // Remoção 
+
+        // Retorna o grafo copiado 
+
+        return subgrafo;
 
     }
 }

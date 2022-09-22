@@ -41,7 +41,7 @@ public abstract class Grafo {
         return resposta;
     }
 
-    public abstract Grafo subGrafo(Lista<Vertice> vertices);
+    public abstract Grafo subGrafo(Lista<Vertice> vertices) throws CloneNotSupportedException;
 
     public boolean eureliano() {
 
