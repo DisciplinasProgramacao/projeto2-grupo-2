@@ -26,16 +26,8 @@ public class GrafoCompleto extends Grafo {
         }
     }
 
+    @Override
     public boolean completo() {
-        Vertice[] vert = new Vertice[vertices.size()];
-        vertices.allElements(vert);
-        
-        for (int i = 1; i < vert.length; i++){
-            if(vert[i].grau() != (vertices.size()-1)) {
-                return false;
-            }
-            break;
-        }
         return true;
     }
 
@@ -57,30 +49,17 @@ public class GrafoCompleto extends Grafo {
     //     return subgrafo;
     // }
 
-    public GrafoCompleto gerarSubGrafo(Lista<Vertice> vertices) throws CloneNotSupportedException {
+    public GrafoCompleto gerarSubGrafo(Lista<Vertice> vertices) {
+        
+        Vertice[] vert = new Vertice[];
 
-        GrafoCompleto completo = new GrafoCompleto(this.nome, this.ordem);
-        GrafoCompleto subgrafo;
+        
 
-        // Copiar o grafo gerado
-
-        subgrafo = (GrafoCompleto) completo.clone();
-
+        vertices.allElements(vert)
 
 
-        // Fazer um loop pela lista recebida 
+        GrafoCompleto(String nome, int ordem);
 
-        // for(int i=0;i<vertices.size();i++) {
-        //     super.existeVertice(vertices.get(i));
-    
-
-        // }
-
-          // Identificar se a key = valor na ABB 
-          
-          // Remoção 
-
-        // Retorna o grafo copiado 
 
         return subgrafo;
 

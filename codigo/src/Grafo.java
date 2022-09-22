@@ -37,8 +37,15 @@ public abstract class Grafo {
      * @return TRUE para grafo completo, FALSE caso contrário
      */
     public boolean completo() {
-        boolean resposta = true;
-        return resposta;
+        Vertice[] vert = new Vertice[vertices.size()];
+        vertices.allElements(vert);
+        
+        for (int i = 1; i < vert.length; i++){
+            if(vert[i].grau() != (vertices.size()-1)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public abstract Grafo subGrafo(Lista<Vertice> vertices) throws CloneNotSupportedException;
