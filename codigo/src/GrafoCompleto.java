@@ -1,3 +1,5 @@
+import java.io.LineNumberInputStream;
+
 public class GrafoCompleto extends Grafo {
     private int ordem;
 
@@ -50,12 +52,9 @@ public class GrafoCompleto extends Grafo {
     // }
 
     public GrafoCompleto gerarSubGrafo(Lista<Vertice> vertices) {
-        
-        Vertice[] vert = new Vertice[];
 
-        
-
-        vertices.allElements(vert)
+        Vertice[] vert = null; 
+        int ordemSubGrafo = vertices.allElements(vert).length;
 
 
         GrafoCompleto(String nome, int ordem);
