@@ -45,22 +45,18 @@ public class GrafoCompleto extends Grafo {
 
     }
     
-
-    // public GrafoCompleto subGrafo(Lista<Vertice> vertices) {
-    //     GrafoCompleto subgrafo = new GrafoCompleto("Subgrafo de " + this.nome, this.ordem);
-    //     return subgrafo;
-    // }
-
-    public GrafoCompleto gerarSubGrafo(Lista<Vertice> vertices) {
+    public GrafoCompleto subGrafo(Lista<Vertice> vertices) {
 
         Vertice[] vert = null; 
         int ordemSubGrafo = vertices.allElements(vert).length;
 
+        if(this.ordem > ordemSubGrafo) {
+            GrafoCompleto subgrafo = new GrafoCompleto("Subgrafo de " + this.nome,ordemSubGrafo);
+            return subgrafo;
 
-        GrafoCompleto(String nome, int ordem);
-
-
-        return subgrafo;
-
+        } else{
+            GrafoCompleto subgrafo = new GrafoCompleto("Subgrafo de " + this.nome,this.ordem);
+            return subgrafo;
+        }
     }
 }
