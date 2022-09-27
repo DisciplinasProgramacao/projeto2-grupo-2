@@ -51,9 +51,7 @@ public abstract class Grafo {
     public abstract Grafo subGrafo(Lista<Vertice> vertices) throws CloneNotSupportedException;
 
     public boolean eureliano() {
-
         return false;
-
     }
 
     public boolean caminhoEureliano() {

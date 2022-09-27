@@ -14,19 +14,7 @@ public abstract class GrafoMutavel extends Grafo {
      * @param origem  Vértice de origem
      * @param destino Vértice de destino
      */
-    public boolean addAresta(int origem, int destino) {
-        boolean adicionou = false;
-        Vertice saida = this.existeVertice(origem);
-        Vertice chegada = this.existeVertice(destino);
-        if (saida != null && chegada != null) {
-            saida.addAresta(destino);
-            chegada.addAresta(origem);
-            adicionou = true;
-        }
-
-        return adicionou;
-
-    }
+        public abstract boolean addAresta(int origem, int destino);
 
     /**
      * Adiciona, se possível, um vértice ao grafo. O vértice é auto-nomeado com o
