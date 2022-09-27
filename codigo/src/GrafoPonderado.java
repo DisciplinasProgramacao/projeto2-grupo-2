@@ -29,7 +29,7 @@ public class GrafoPonderado extends GrafoMutavel {
     }
 
     public GrafoPonderado subGrafo(Lista<Vertice> vertices) {
-        Grafo subgrafo = new Grafo("Subgrafo de " + this.nome);
+        GrafoPonderado subgrafo = new GrafoPonderado("Subgrafo de " + this.nome);
         return subgrafo;
     }
 

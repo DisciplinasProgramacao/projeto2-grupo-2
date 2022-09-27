@@ -32,16 +32,5 @@ public class ABB<T> {
         return allData;
     }
 
-    /*
-     * Método criado para remoção de vértices (Precisa validar)
-     */
 
-    private boolean remove(int key){
-        boolean result =false;
-        if (!this.data.containsKey(key)) {
-            this.data.remove(key);
-            result = true; 
-        }
-        return result;
-    }
 }

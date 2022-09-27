@@ -56,7 +56,7 @@ public class GrafoCompleto extends Grafo {
     }
 
     public boolean eureliano() {
-
+        return false;
     }
     
     public GrafoCompleto subGrafo(Lista<Vertice> vertices) {
