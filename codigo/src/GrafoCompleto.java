@@ -33,12 +33,20 @@ public class GrafoCompleto extends Grafo {
         return true;
     }
 
-    public Aresta existeAresta(int verticeA, int verticeB) {
-
+    public Vertice existeVertice(int idVertice) {
+        return this.vertices.find(idVertice);
     }
 
-    public Vertice existeVertice(int idVertice) {
-
+    /**
+     * (Precisa testar)
+     * 
+     * @param verticeA
+     * @param verticeB
+     * @return
+     */
+    public Aresta existeAresta(int verticeA, int verticeB) {
+        Vertice saida = this.existeVertice(verticeA);
+        return saida.existeAresta(verticeB);
     }
 
     public boolean eureliano() {
