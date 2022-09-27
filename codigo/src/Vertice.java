@@ -33,7 +33,6 @@ public class Vertice {
      */
     public Aresta existeAresta(int destino) {
         return this.arestas.find(destino);
-
     }
 
     /**

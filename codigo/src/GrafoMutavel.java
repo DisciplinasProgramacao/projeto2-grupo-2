@@ -14,7 +14,7 @@ public abstract class GrafoMutavel extends Grafo {
      * @param origem  Vértice de origem
      * @param destino Vértice de destino
      */
-        public abstract boolean addAresta(int origem, int destino);
+    public abstract boolean addAresta(int origem, int destino);
 
     /**
      * Adiciona, se possível, um vértice ao grafo. O vértice é auto-nomeado com o

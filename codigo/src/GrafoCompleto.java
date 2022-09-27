@@ -1,5 +1,3 @@
-import java.io.LineNumberInputStream;
-
 public class GrafoCompleto extends Grafo {
     private int ordem;
 
@@ -8,24 +6,32 @@ public class GrafoCompleto extends Grafo {
         this.ordem = ordem;
 
         for (int i = 1; i <= this.ordem; i++) {
-            //addVertice(i);
-
-            Vertice novo = new Vertice(i);
-            this.vertices.add(i, novo);
+            addVertice(i);
 
             for (int j = (i + 1); j <= this.ordem; j++) {
-                // addAresta(i, j);
-
-                boolean adicionou = false;
-                Vertice saida = this.existeVertice(i);
-                Vertice chegada = this.existeVertice(j);
-                if (saida != null && chegada != null) {
-                    saida.addAresta(j);
-                    chegada.addAresta(i);
-                    adicionou = true;
-                }
+                addAresta(i, j);
             }
         }
+    }
+
+    private boolean addVertice(int id) {
+        Vertice novo = new Vertice(id);
+        return this.vertices.add(id, novo);
+    }
+
+    private boolean addAresta(int origem, int destino) {
+    
+        boolean adicionou = false;
+        Vertice saida = this.existeVertice(origem);
+        Vertice chegada = this.existeVertice(destino);
+    
+        if (saida != null && chegada != null) {
+            saida.addAresta(destino);
+            chegada.addAresta(origem);
+            adicionou = true;
+        }
+
+        return adicionou;
     }
 
     @Override

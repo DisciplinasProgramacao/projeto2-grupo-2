@@ -18,8 +18,6 @@ public class Lista<T> {
         return allData;
     }
 
-
-
     // validar
     // public int size() {
     //     return this.data.size();
@@ -29,7 +27,4 @@ public class Lista<T> {
     // public T get(int i) {
     //     return this.data.peekFirst();
     // }
-
-
-
 }

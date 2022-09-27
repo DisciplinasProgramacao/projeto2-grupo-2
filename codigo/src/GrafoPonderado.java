@@ -8,10 +8,6 @@ public class GrafoPonderado extends GrafoMutavel {
         super(nome);
     }
 
-    public boolean addAresta(int origem, int destino) {
-        return false;
-    }
-
     /**
      * Adiciona uma aresta entre dois vértices do grafo.
      * Não verifica se os vértices pertencem ao grafo.

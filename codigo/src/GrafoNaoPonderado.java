@@ -4,7 +4,6 @@ public class GrafoNaoPonderado extends GrafoMutavel {
         super(nome);
     }
 
-
     /**
      * Adiciona uma aresta entre dois vértices do grafo.
      * Não verifica se os vértices pertencem ao grafo.
@@ -23,13 +22,11 @@ public class GrafoNaoPonderado extends GrafoMutavel {
         }
 
         return adicionou;
-
     }
 
     /*
      *  Subgrafo não ponderado
      */
-
     public GrafoNaoPonderado subGrafo(Lista<Vertice> vertices) {
 
         Vertice[] vert = null; 
@@ -40,15 +37,8 @@ public class GrafoNaoPonderado extends GrafoMutavel {
 
             for(int j=1; j<vertices.allElements(vert).length;j++){
                 if(grafoNaoPonderado.existeVertice());
-
             }
-
         }
-
-
-
-
         return null;
     }
-
 }

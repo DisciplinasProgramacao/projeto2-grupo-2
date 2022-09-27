@@ -11,7 +11,6 @@ public abstract class Grafo {
      */
     public Grafo(String nome) {
         this.nome = nome;
-        qtdeArestas = 0;
         this.vertices = new ABB<>();
     }
 
@@ -74,5 +73,4 @@ public abstract class Grafo {
     public int ordem() {
         return this.vertices.size();
     }
-
 }
