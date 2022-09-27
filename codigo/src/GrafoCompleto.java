@@ -1,5 +1,3 @@
-import java.io.LineNumberInputStream;
-
 public class GrafoCompleto extends Grafo {
     private int ordem;
 
@@ -50,7 +48,7 @@ public class GrafoCompleto extends Grafo {
     }
 
     public boolean eureliano() {
-
+        return false;
     }
     
     public GrafoCompleto subGrafo(Lista<Vertice> vertices) {

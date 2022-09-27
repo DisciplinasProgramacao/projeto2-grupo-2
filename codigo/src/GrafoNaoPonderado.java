@@ -39,7 +39,7 @@ public class GrafoNaoPonderado extends GrafoMutavel {
         for(int i=1;i<grafoNaoPonderado.ordem();i++){
 
             for(int j=1; j<vertices.allElements(vert).length;j++){
-                if(grafoNaoPonderado.existeVertice());
+                //if(grafoNaoPonderado.existeVertice());
 
             }
 

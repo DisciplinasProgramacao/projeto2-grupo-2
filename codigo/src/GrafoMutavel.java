@@ -26,10 +26,35 @@ public abstract class GrafoMutavel extends Grafo {
     }
 
     public void carregar(String nomeArquivo) throws Exception {
+        
+        int vertices;
+        int arestas;
+        
         Scanner scanner = new Scanner(new File(nomeArquivo));
         scanner.useDelimiter(";");
+        String[] valoresAresta = new String[2]; //origem e destino 
+
         while (scanner.hasNext()) {
-            System.out.println(scanner.next());
+            
+            String nome = scanner.nextLine(); 
+            scanner.next();
+            vertices = scanner.nextInt(); 
+            arestas = scanner.nextInt();
+            
+            for(int i = 1; i <= vertices; i++){
+                addVertice(i);
+            }
+
+            scanner.next();
+
+            arestas = scanner.nextInt(); // quantidade arestas
+
+            for(int i = 1; i <= arestas; i++){
+
+                valoresAresta = scanner.next().split(";");
+                addAresta(Integer.parseInt(valoresAresta[0]), Integer.parseInt(valoresAresta[1]));
+                scanner.next();        
+            }            
         }
         scanner.close();
     }

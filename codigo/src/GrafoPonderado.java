@@ -8,7 +8,7 @@ public class GrafoPonderado extends GrafoMutavel {
         super(nome);
     }
 
-    public boolean addAresta(int origem, int destino) {
+    public boolean addAresta(int origem, int destino, int peso) {
         return false;
     }
 
@@ -33,7 +33,7 @@ public class GrafoPonderado extends GrafoMutavel {
     }
 
     public GrafoPonderado subGrafo(Lista<Vertice> vertices) {
-        Grafo subgrafo = new Grafo("Subgrafo de " + this.nome);
+        GrafoPonderado subgrafo = new GrafoPonderado("Subgrafo de " + this.nome);
         return subgrafo;
     }
 
