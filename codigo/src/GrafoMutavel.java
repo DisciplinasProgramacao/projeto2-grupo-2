@@ -1,14 +1,16 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.Writer;
 
 public abstract class GrafoMutavel extends Grafo {
 
     public GrafoMutavel(String nome) {
         super(nome);
     }
-
 
     /**
      * Adiciona uma aresta entre dois vértices do grafo.
@@ -29,39 +31,42 @@ public abstract class GrafoMutavel extends Grafo {
     }
 
     public void carregar(String nomeArquivo) throws Exception {
+
+        BufferedReader br = new BufferedReader(new FileReader(nomeArquivo));
         
-        int vertices;
-        int arestas;
+        String nomeDoGrafo = br.readLine(); //csv file linha 0
+        this.nome = nomeDoGrafo;
 
-        File file = new File(nomeArquivo);
-        Scanner scanner = new Scanner(file);
+        int ordem = Integer.parseInt(br.readLine()); //csv file linha 1
 
-        // scanner.useDelimiter(";");
-        String[] valoresAresta = new String[2]; //origem e destino 
-
-        while (scanner.hasNext()) {
-            
-            String nome = scanner.nextLine(); 
-            scanner.next();
-            vertices = scanner.nextInt(); 
-            arestas = scanner.nextInt();
-            
-            for(int i = 1; i <= vertices; i++){
-                addVertice(i);
-            }
-
-            scanner.next();
-
-            arestas = scanner.nextInt(); // quantidade arestas
-
-            for(int i = 1; i <= arestas; i++){
-
-                valoresAresta = scanner.next().split(";");
-                addAresta(Integer.parseInt(valoresAresta[0]), Integer.parseInt(valoresAresta[1]));
-                scanner.next();        
-            }            
+        for (int i = 1; i <= ordem; i++) {
+            addVertice(i);
         }
-        scanner.close();
+
+        String linha = null;
+        String[] splitText = null;
+        int vetOrigem;
+        int vetDestino;
+
+        while(true) {
+            if(linha != null) {
+
+                splitText = linha.split(";");
+                vetOrigem = Integer.parseInt(splitText[0]);
+                vetDestino = Integer.parseInt(splitText[1]);
+
+                for (int i = 1; i <= ordem; i++) {
+                    if(i == vetOrigem) {
+                        addAresta(vetOrigem, vetDestino);
+                    }
+                }
+            } else {
+                break;
+            }
+            linha = br.readLine();
+        }
+
+        br.close();
     }
 
     public boolean delAresta(int origem, int destino) {
@@ -73,19 +78,25 @@ public abstract class GrafoMutavel extends Grafo {
     }
 
     public void salvar(String nomeArquivo) {
-        // this.name;
-        // this.vertices.size();
-        // How am I going to load the edges from the graph?
-        // How am I going to save the graphs at the end of the file?
-        //BE CAREFULL about the file path
-        try {
-            FileWriter fw = new FileWriter("codigo/src/grafos.csv", true);
-            fw.write("\n"+ this.nome + "\n" + this.vertices.size()+ "\n" +"" );
-            fw.close();
-            System.out.println("Appended to the file.");
-        } catch (IOException ioe) {
-            System.out.print("\nSomething went wrong!");
+
+        BufferedWriter bw = new BufferedWriter(new FileWriter(nomeArquivo));
+
+        int ordem = ordem();
+
+        bw.write(this.nome + "\n");
+        bw.write(ordem + "\n");
+
+        for(int i = 1; i <= ordem; i++) {
+            
+            //verificar vertice
+
+            for (int j = 1; j <= ordem; j++) {
+                //escrever aresta
+            }
+        }
+        bw.write("\n"+ this.nome + "\n" + this.vertices.size()+ "\n" +"" );
+
+        bw.close();
         }
     }
-
 }
