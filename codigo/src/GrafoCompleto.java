@@ -85,7 +85,7 @@ public class GrafoCompleto extends Grafo {
           
         }
         
-        if(grauVertice > 2){ // If the Graph has 3 vertices with odd degrees, it is not Eulerian
+        if(qtImpares > 2){ // If the Graph has 3 vertices with odd degrees, it is not Eulerian
             return false;
         }
         
