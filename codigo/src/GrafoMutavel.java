@@ -91,10 +91,10 @@ public abstract class GrafoMutavel extends Grafo {
         // How am I going to save the graphs at the end of the file?
         //BE CAREFULL about the file path
         try {
-            FileWriter fw = new FileWriter("grafos.csv", true);
+            FileWriter fw = new FileWriter("codigo/src/grafos.csv", true);
             fw.write("\n"+ this.nome + "\n" + this.vertices.size()+ "\n" +"" );
             fw.close();
-            System.out.println("The content is successfully appended to the file.");
+            System.out.println("Appended to the file.");
         } catch (IOException ioe) {
             System.out.print("\nSomething went wrong!");
         }
