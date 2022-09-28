@@ -29,9 +29,11 @@ public abstract class GrafoMutavel extends Grafo {
         
         int vertices;
         int arestas;
-        
-        Scanner scanner = new Scanner(new File(nomeArquivo));
-        scanner.useDelimiter(";");
+
+        File file = new File(nomeArquivo);
+        Scanner scanner = new Scanner(file);
+
+        // scanner.useDelimiter(";");
         String[] valoresAresta = new String[2]; //origem e destino 
 
         while (scanner.hasNext()) {
