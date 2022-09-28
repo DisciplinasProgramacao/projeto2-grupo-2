@@ -26,8 +26,8 @@ public class GrafoCompleto extends Grafo {
         Vertice chegada = this.existeVertice(destino);
     
         if (saida != null && chegada != null) {
-            saida.addAresta(destino);
-            chegada.addAresta(origem);
+            saida.addAresta(1, destino);
+            chegada.addAresta(1, origem);
             adicionou = true;
         }
 

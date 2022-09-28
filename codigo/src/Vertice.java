@@ -16,9 +16,18 @@ public class Vertice {
     }
 
     /**
-     * Adiciona uma aresta neste vértice para um destino
+     * Adiciona uma aresta ponderada neste vértice para um destino
      * 
      * @param peso Peso da aresta (1 para grafos não ponderados)
+     * @param dest Vértice de destino
+     */
+    public boolean addAresta(int destino, int peso) {
+        return this.arestas.add(destino, new Aresta(peso, destino));
+    }
+
+    /**
+     * Adiciona uma aresta neste vértice para um destino
+     * 
      * @param dest Vértice de destino
      */
     public boolean addAresta(int destino) {
