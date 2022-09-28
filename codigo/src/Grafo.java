@@ -73,4 +73,8 @@ public abstract class Grafo {
     public int ordem() {
         return this.vertices.size();
     }
+
+    public void buscaEmProfundidade() {
+                
+    }
 }
