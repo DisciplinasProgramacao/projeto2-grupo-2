@@ -55,8 +55,59 @@ public class GrafoCompleto extends Grafo {
         return saida.existeAresta(verticeB);
     }
 
-    public boolean eureliano() {
-        return false;
+    public boolean eureliano(GrafoNaoPonderado grafo) {
+        //CONDITIONS Fleury's Algoritm 
+        Grafo grafoCopy = grafo; // This needs to be a clone 
+        int qtVertices = grafo.ordem();
+        int qtArestas = grafo.tamanho(); // MOCK
+        
+        int qtImpares = 0;
+        int grauVertice = 0;
+        int verticeImpar;
+
+        //Things to resolve first:
+        /*
+         * Get the degree of each vertice 
+         * Get the number of edges of a graph
+         * check if a edge is not a bridge
+         */
+
+        // if d(v) for each vertice is even 
+       
+        // if there are only 2 vertices with odd degrees
+
+        for(int i = 1; i <= qtVertices; i++){
+           grauVertice =  grafoCopy.vertices.size(); //MOCK CODE verify if it is odd 
+           if(grauVertice %2 !=0){
+                qtImpares ++;
+                verticeImpar = i;
+           }
+          
+        }
+        
+        if(grauVertice > 2){ // If the Graph has 3 vertices with odd degrees, it is not Eulerian
+            return false;
+        }
+        
+        
+        //Select an initial edge, if there are odds start with one of them
+        //HERE
+
+        //Garbage conditions bellow
+        while(qtArestas != 0){ //While are edges on the graph's copy 
+            int nextEdge =0;
+
+            if(nextEdge < 0){ // If the d(v) > 1 select an edge that is not a bridge
+
+            }else{
+                //Select the only edge 
+            }
+            //Walk to edge chosen
+            //Delete the edge between the last and the new edge
+            //grafo.delAresta(origem, destino)
+
+        }
+        return true;
     }
     
     public GrafoCompleto subGrafo(Lista<Vertice> vertices) {
