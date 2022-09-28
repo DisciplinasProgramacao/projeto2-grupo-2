@@ -1,4 +1,6 @@
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public abstract class GrafoMutavel extends Grafo {
@@ -7,6 +9,7 @@ public abstract class GrafoMutavel extends Grafo {
         super(nome);
     }
 
+
     /**
      * Adiciona uma aresta entre dois vértices do grafo.
      * Não verifica se os vértices pertencem ao grafo.
@@ -14,7 +17,19 @@ public abstract class GrafoMutavel extends Grafo {
      * @param origem  Vértice de origem
      * @param destino Vértice de destino
      */
-    public abstract boolean addAresta(int origem, int destino);
+    public boolean addAresta(int origem, int destino) {
+        boolean adicionou = false;
+        Vertice saida = this.existeVertice(origem);
+        Vertice chegada = this.existeVertice(destino);
+        if (saida != null && chegada != null) {
+            saida.addAresta(destino);
+            chegada.addAresta(origem);
+            adicionou = true;
+        }
+
+        return adicionou;
+    }
+
 
     /**
      * Adiciona, se possível, um vértice ao grafo. O vértice é auto-nomeado com o
@@ -74,6 +89,15 @@ public abstract class GrafoMutavel extends Grafo {
         // this.vertices.size();
         // How am I going to load the edges from the graph?
         // How am I going to save the graphs at the end of the file?
+        //BE CAREFULL about the file path
+        try {
+            FileWriter fw = new FileWriter("grafos.csv", true);
+            fw.write("\n"+ this.nome + "\n" + this.vertices.size()+ "\n" +"" );
+            fw.close();
+            System.out.println("The content is successfully appended to the file.");
+        } catch (IOException ioe) {
+            System.out.print("\nSomething went wrong!");
+        }
     }
 
 }
