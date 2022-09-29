@@ -9,10 +9,10 @@ public class GrafoTest {
 
     /*
      * PLANO DE TESTES DA CLASSE MICROWAVE
-     * - Carregar um novo grafo 
+     * - Carregar um novo grafo
      * - Gerar um grafo completo
-     *   - Verificar se é um grafo completo
-     * - Tamanho de um grafo 
+     * - Verificar se é um grafo completo
+     * - Tamanho de um grafo
      * - Subgrafo completo
      */
 
@@ -20,16 +20,16 @@ public class GrafoTest {
     static GrafoCompleto grafoCompleto;
 
     @BeforeEach
-    public void init(){
+    public void init() {
         grafoPonderado = new GrafoPonderado("Grafo ponderado");
-        
+
     }
 
     @Test
-    public void carregaUmArquivoCsvParaLeitura(){
+    public void carregaUmArquivoCsvParaLeitura() {
         grafoPonderado.carregar("grafos.csv");
-        int existe=0;
-        if(grafoPonderado.existeVertice(4) != null){
+        int existe = 0;
+        if (grafoPonderado.existeVertice(4) != null) {
             existe++;
         }
         assertEquals(1, existe);
@@ -39,14 +39,21 @@ public class GrafoTest {
     public void criarGrafoCompleto() {
         int grafoCriado = 0;
         grafoCompleto = new GrafoCompleto("Grafo completo", 4);
-        if(grafoCompleto.completo()){
+        if (grafoCompleto.completo()) {
             grafoCriado++;
         }
-        assertEquals(1,grafoCriado);
+        assertEquals(1, grafoCriado);
     }
 
     @Test
-    public void gerarSubGrafoCompleto(){
+    public void carregarGrafo() throws Exception {
+        GrafoMutavel g = new GrafoNaoPonderado("Grafo completo");
+        g.carregar("C:/SoftwareEngCodes/PUC/Lab Prog Modular/projeto2-grupo-2/codigo/grafos.txt");
+        assertEquals(8, g.tamanho());
+    }
+
+    @Test
+    public void gerarSubGrafoCompleto() {
         int subGrafoCriado = 0;
         Lista<Vertice> vertices = new Lista<Vertice>();
         Vertice v1 = new Vertice(4);
@@ -59,14 +66,5 @@ public class GrafoTest {
         grafoCompleto.subGrafo(vertices);
 
     }
-
-
-
-
-
-
-
-    
-
 
 }

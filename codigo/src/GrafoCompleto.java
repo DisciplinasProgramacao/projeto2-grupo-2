@@ -112,7 +112,7 @@ public class GrafoCompleto extends Grafo {
     
     public GrafoCompleto subGrafo(Lista<Vertice> vertices) {
 
-        Vertice[] vert = null; 
+        Vertice[] vert = new Vertice[this.ordem]; 
         int ordemSubGrafo = vertices.allElements(vert).length;
 
         if(this.ordem > ordemSubGrafo) {

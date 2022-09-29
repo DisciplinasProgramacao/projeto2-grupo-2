@@ -1,10 +1,8 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 
 public abstract class GrafoMutavel extends Grafo {
 
@@ -33,36 +31,36 @@ public abstract class GrafoMutavel extends Grafo {
     public void carregar(String nomeArquivo) throws Exception {
 
         BufferedReader br = new BufferedReader(new FileReader(nomeArquivo));
-        
+
         String nomeDoGrafo = br.readLine(); //csv file linha 0
-        this.nome = nomeDoGrafo;
+        GrafoMutavel auxGraf = new GrafoNaoPonderado(nomeDoGrafo);
 
         int ordem = Integer.parseInt(br.readLine()); //csv file linha 1
 
         for (int i = 1; i <= ordem; i++) {
-            addVertice(i);
+            auxGraf.addVertice(i);
         }
 
         String linha = null;
         String[] splitText = null;
-        int vetOrigem;
-        int vetDestino;
+        int vertOrigem;
+        int vertDestino;
 
-        while(true) {
+
+        while(br.readLine() != null) {
             if(linha != null) {
 
                 splitText = linha.split(";");
-                vetOrigem = Integer.parseInt(splitText[0]);
-                vetDestino = Integer.parseInt(splitText[1]);
+                vertOrigem = Integer.parseInt(splitText[0]);
+                vertDestino = Integer.parseInt(splitText[1]);
 
-                for (int i = 1; i <= ordem; i++) {
-                    if(i == vetOrigem) {
-                        addAresta(vetOrigem, vetDestino);
-                    }
-                }
-            } else {
-                break;
+                Vertice vertO = auxGraf.existeVertice(vertOrigem);
+                Vertice vertD = auxGraf.existeVertice(vertDestino);
+                 
+                vertO.addAresta(vertDestino);
+                vertD.addAresta(vertOrigem);
             }
+
             linha = br.readLine();
         }
 
@@ -77,7 +75,7 @@ public abstract class GrafoMutavel extends Grafo {
         return false;
     }
 
-    public void salvar(String nomeArquivo) {
+    public void salvar(String nomeArquivo) throws IOException {
 
         BufferedWriter bw = new BufferedWriter(new FileWriter(nomeArquivo));
 
@@ -97,6 +95,6 @@ public abstract class GrafoMutavel extends Grafo {
         bw.write("\n"+ this.nome + "\n" + this.vertices.size()+ "\n" +"" );
 
         bw.close();
-        }
     }
+    
 }

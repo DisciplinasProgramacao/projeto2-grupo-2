@@ -3,7 +3,7 @@
  */
 public abstract class Grafo {
 
-    public final String nome;
+    public String nome;
     protected ABB<Vertice> vertices;
 
     /**
