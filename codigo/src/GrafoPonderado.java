@@ -5,6 +5,10 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class GrafoPonderado extends GrafoMutavel {
+     /**
+     * Método construtor Grafo não Ponderado
+     * @param nome Nome do Grafo Mutável
+     */
 
     public GrafoPonderado(String nome) {
         super(nome);
@@ -43,11 +47,25 @@ public class GrafoPonderado extends GrafoMutavel {
         return addAresta(origem, destino, 1);
     }
 
+
+    /**
+     * Método para gerar um subgrafo
+     * 
+     * @param vertices Uma lista de vertices
+     * @return Um subgrafo
+     */
+    
+
     public GrafoPonderado subGrafo(Lista<Vertice> vertices) {
         GrafoPonderado subgrafo = new GrafoPonderado("Subgrafo de " + this.nome);
         return subgrafo;
     }
 
+    /**
+     * Método carregar grafos a partir de um arquivo
+     * próximo id disponível.
+     * @param nomeArquivo Caminho do arquivo txt
+     */
     public void carregar(String nomeArquivo) throws Exception {
 
         BufferedReader br = new BufferedReader(new FileReader(nomeArquivo));

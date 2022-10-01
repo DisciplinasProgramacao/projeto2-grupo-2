@@ -1,5 +1,9 @@
 public class GrafoNaoPonderado extends GrafoMutavel {
 
+    /**
+     * Método construtor Grafo não Ponderado
+     * @param nome Nome do Grafo Mutável
+     */
     public GrafoNaoPonderado(String nome) {
         super(nome);
     }
