@@ -30,8 +30,10 @@ public class GrafoNaoPonderado extends GrafoMutavel {
      *  Subgrafo não ponderado
      */
     public GrafoNaoPonderado subGrafo(Lista<Vertice> vertices) {
+        Grafo grafoNPonderado = new GrafoNaoPonderado(this.nome);
+        
 
-        Vertice[] vert = null; 
+        Vertice[] vert = new Vertice[grafoNPonderado.ordem()]; 
 
         GrafoNaoPonderado grafoNaoPonderado = new GrafoNaoPonderado(this.nome);
         GrafoNaoPonderado subGrafoNaoPonderado = new GrafoNaoPonderado(this.nome);
