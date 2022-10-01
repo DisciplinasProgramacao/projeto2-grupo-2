@@ -33,12 +33,14 @@ public abstract class GrafoMutavel extends Grafo {
         BufferedReader br = new BufferedReader(new FileReader(nomeArquivo));
 
         String nomeDoGrafo = br.readLine(); //csv file linha 0
-        GrafoMutavel auxGraf = new GrafoNaoPonderado(nomeDoGrafo);
+      //  GrafoMutavel auxGraf = new GrafoNaoPonderado(nomeDoGrafo);
+
+        this.nome = nomeDoGrafo;
 
         int ordem = Integer.parseInt(br.readLine()); //csv file linha 1
 
         for (int i = 1; i <= ordem; i++) {
-            auxGraf.addVertice(i);
+            this.addVertice(i);
         }
 
         String linha = null;
@@ -46,22 +48,20 @@ public abstract class GrafoMutavel extends Grafo {
         int vertOrigem;
         int vertDestino;
 
+        linha = br.readLine();
 
-        while(br.readLine() != null) {
-            if(linha != null) {
+        while(linha != null) {
 
                 splitText = linha.split(";");
                 vertOrigem = Integer.parseInt(splitText[0]);
                 vertDestino = Integer.parseInt(splitText[1]);
 
-                Vertice vertO = auxGraf.existeVertice(vertOrigem);
-                Vertice vertD = auxGraf.existeVertice(vertDestino);
+                Vertice vertO = this.existeVertice(vertOrigem);
+                Vertice vertD = this.existeVertice(vertDestino);
                  
                 vertO.addAresta(vertDestino);
                 vertD.addAresta(vertOrigem);
-            }
-
-            linha = br.readLine();
+                linha = br.readLine();
         }
 
         br.close();

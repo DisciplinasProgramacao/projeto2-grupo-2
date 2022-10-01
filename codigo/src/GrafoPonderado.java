@@ -1,5 +1,7 @@
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.Scanner;
 
 public class GrafoPonderado extends GrafoMutavel {
@@ -46,16 +48,43 @@ public class GrafoPonderado extends GrafoMutavel {
         return subgrafo;
     }
 
-    public void carregar(String nomeArquivo) {
-        try (Scanner scanner = new Scanner(new File(nomeArquivo))) {
-            scanner.useDelimiter(";");
-            while (scanner.hasNext()) {
-                System.out.println(scanner.next());
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    public void carregar(String nomeArquivo) throws Exception {
+
+        BufferedReader br = new BufferedReader(new FileReader(nomeArquivo));
+
+        String nomeDoGrafo = br.readLine(); //csv file linha 0
+        GrafoMutavel auxGraf = new GrafoNaoPonderado(nomeDoGrafo);
+
+        int ordem = Integer.parseInt(br.readLine()); //csv file linha 1
+
+        for (int i = 1; i <= ordem; i++) {
+            auxGraf.addVertice(i);
         }
+
+        String linha = null;
+        String[] splitText = null;
+        int vertOrigem;
+        int vertDestino;
+
+
+        while(br.readLine() != null) {
+            if(linha != null) {
+
+                splitText = linha.split(";");
+                vertOrigem = Integer.parseInt(splitText[0]);
+                vertDestino = Integer.parseInt(splitText[1]);
+
+                Vertice vertO = auxGraf.existeVertice(vertOrigem);
+                Vertice vertD = auxGraf.existeVertice(vertDestino);
+                 
+                vertO.addAresta(vertDestino);
+                vertD.addAresta(vertOrigem);
+            }
+
+            linha = br.readLine();
+        }
+
+        br.close();
     }
 
 }

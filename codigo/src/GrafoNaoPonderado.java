@@ -30,27 +30,17 @@ public class GrafoNaoPonderado extends GrafoMutavel {
      *  Subgrafo não ponderado
      */
     public GrafoNaoPonderado subGrafo(Lista<Vertice> vertices) {
-        Grafo grafoNPonderado = new GrafoNaoPonderado(this.nome);
-        
+  
+        GrafoNaoPonderado subGrafoNPonderado = new GrafoNaoPonderado(this.nome);
+        Vertice[] vert = new Vertice[2];
+        vertices.allElements(vert);
 
-        Vertice[] vert = new Vertice[grafoNPonderado.ordem()]; 
-
-        GrafoNaoPonderado grafoNaoPonderado = new GrafoNaoPonderado(this.nome);
-        GrafoNaoPonderado subGrafoNaoPonderado = new GrafoNaoPonderado(this.nome);
-
-        
-
-        for(int j=1; j<vertices.allElements(vert).length;j++){
-            grafoNaoPonderado.existeVertice(j);
-                //copiaVerticeParaSubGrafo
-                //copia arestas
-
-                for(int i=1;i<grafoNaoPonderado.ordem();i++){
-                //
-                //
-            }
-        }
-
-        return null;
+       for (int i = 1; i <= this.ordem(); i++){
+          for (int y = 0; y < vertices.allElements(vert).length; y++){
+            if (vert[y].getId() == this.vertices.find(i).getId())
+            subGrafoNPonderado.vertices.add(i, this.vertices.find(i));
+          }
+       }
+        return subGrafoNPonderado;
     }
 }

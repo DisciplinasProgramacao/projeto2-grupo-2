@@ -26,16 +26,6 @@ public class GrafoTest {
     }
 
     @Test
-    public void carregaUmArquivoCsvParaLeitura() {
-        grafoPonderado.carregar("grafos.csv");
-        int existe = 0;
-        if (grafoPonderado.existeVertice(4) != null) {
-            existe++;
-        }
-        assertEquals(1, existe);
-    }
-
-    @Test
     public void criarGrafoCompleto() {
         int grafoCriado = 0;
         grafoCompleto = new GrafoCompleto("Grafo completo", 4);
@@ -48,7 +38,7 @@ public class GrafoTest {
     @Test
     public void carregarGrafo() throws Exception {
         GrafoMutavel g = new GrafoNaoPonderado("Grafo completo");
-        g.carregar("C:/SoftwareEngCodes/PUC/Lab Prog Modular/projeto2-grupo-2/codigo/grafos.txt");
+        g.carregar("C:/Users/Cliente Vip Infomac/Desktop/PUC/PM/LPM/projeto2-grupo-2/codigo/grafos.txt");
         assertEquals(8, g.tamanho());
     }
 
@@ -56,15 +46,28 @@ public class GrafoTest {
     public void gerarSubGrafoCompleto() {
         int subGrafoCriado = 0;
         Lista<Vertice> vertices = new Lista<Vertice>();
+        GrafoCompleto novoSubGrafo = null;
         Vertice v1 = new Vertice(4);
         Vertice v2 = new Vertice(3);
         vertices.add(v1);
         vertices.add(v2);
-
         grafoCompleto = new GrafoCompleto("Grafo completo", 4);
-
-        grafoCompleto.subGrafo(vertices);
-
+        novoSubGrafo = grafoCompleto.subGrafo(vertices);
+        assertEquals(4, novoSubGrafo.ordem());
     }
+
+    @Test 
+    public void gerarSubGrafoNaoPonderado() throws Exception {
+        GrafoNaoPonderado g = new GrafoNaoPonderado("");
+        GrafoNaoPonderado novoSubGrafo = null;
+        g.carregar("C:/Users/Cliente Vip Infomac/Desktop/PUC/PM/LPM/projeto2-grupo-2/codigo/grafos.txt");
+        Lista<Vertice> vertices = new Lista<Vertice>();
+        Vertice v1 = new Vertice(4);
+        Vertice v2 = new Vertice(3);
+        vertices.add(v1);
+        vertices.add(v2);
+        novoSubGrafo = g.subGrafo(vertices);
+        assertEquals(2, novoSubGrafo.ordem());
+    } 
 
 }
