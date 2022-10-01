@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.BeforeClass;
@@ -19,7 +20,7 @@ public class GrafoTest {
 
     static GrafoPonderado grafoPonderado;
     static GrafoCompleto grafoCompleto;
-    static final String caminhoArquivo = "C:/Codes/LPM/projeto2-grupo-2/codigo/";
+    static final String caminhoArquivo = "C:/Users/Cliente Vip Infomac/Desktop/PUC/PM/LPM/projeto2-grupo-2/codigo/";
     static final String nomeArquivoLeitura = "grafos.txt";
     static final String nomeArquivoSalvar = "novoGrafo.txt";
 
@@ -91,6 +92,14 @@ public class GrafoTest {
         g.carregar(caminhoArquivo + nomeArquivoLeitura);
         g.buscaEmProfundidade(g.existeVertice(1));
         assertTrue(g.existeVertice(4).existeAresta(1).visitada());
+    }
+
+    @Test 
+    public void caminhoEntreDoisVertices() throws Exception{
+        GrafoMutavel g = new GrafoNaoPonderado("Grafo completo");
+        g.carregar(caminhoArquivo + nomeArquivoLeitura);
+        g.caminhoEntreVertices(g.existeVertice(1), g.existeVertice(4));
+        assertFalse(g.existeVertice(4).existeAresta(1).visitada());
     }
 
 }

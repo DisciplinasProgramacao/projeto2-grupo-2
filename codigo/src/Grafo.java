@@ -86,15 +86,37 @@ public abstract class Grafo {
 
         Aresta arestaExistente = null;
 
-        for(int i = 0; i < vertice.length; i++) { 
+        for (int i = 0; i < vertice.length; i++) {
 
             arestaExistente = existeAresta(vert.getId(), vertice[i].getId());
 
-            if(arestaExistente != null && !arestaExistente.visitada()) {
+            if (arestaExistente != null && !arestaExistente.visitada()) {
                 arestaExistente.visitar();
                 buscaEmProfundidade(vertice[i]);
                 System.out.println("vertice: " + vert.getId());
             }
         }
     }
+
+    public Boolean caminhoEntreVertices(Vertice vert1, Vertice vert2) {
+        Vertice[] vertice = new Vertice[vertices.size()];
+        vertices.allElements(vertice);
+
+        Aresta arestaExistente = null;
+
+        for (int i = 0; i < vertice.length; i++) {
+            arestaExistente = existeAresta(vert1.getId(), vertice[i].getId());
+
+            if (vert2.getId() == vertice[i].getId())
+                return true;
+
+            if (arestaExistente != null && !arestaExistente.visitada() && !vertice[i].visitado()) {        
+                arestaExistente.visitar();
+                System.out.println(vertice[i]);
+                caminhoEntreVertices(vertice[i], vert2);
+            }
+        }
+        return false;
+    }
+
 }
