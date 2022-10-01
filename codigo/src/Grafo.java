@@ -1,3 +1,6 @@
+import java.util.Iterator;
+import java.util.LinkedList;
+
 /**
  * Classe básica para um Grafo simples
  */
@@ -38,9 +41,9 @@ public abstract class Grafo {
     public boolean completo() {
         Vertice[] vert = new Vertice[vertices.size()];
         vertices.allElements(vert);
-        
-        for (int i = 1; i < vert.length; i++){
-            if(vert[i].grau() != (vertices.size()-1)) {
+
+        for (int i = 1; i < vert.length; i++) {
+            if (vert[i].grau() != (vertices.size() - 1)) {
                 return false;
             }
         }
@@ -62,19 +65,65 @@ public abstract class Grafo {
         vertices.allElements(vert);
 
         int qtdeArestas = 0;
-        
-        for (int i = 0; i < vert.length; i++){
+
+        for (int i = 0; i < vert.length; i++) {
             qtdeArestas += vert[i].grau();
         }
 
-        return ordem() + (qtdeArestas/2);
+        return ordem() + (qtdeArestas / 2);
     }
 
     public int ordem() {
         return this.vertices.size();
     }
 
-    public void buscaEmProfundidade() {
-                
+    public Grafo buscaEmProfundidade(Vertice vert) {
+
+        Vertice[] vertice = new Vertice[vertices.size()];
+        vertices.allElements(vertice);
+
+        vert.visitar();
+
+        Vertice vertO = this.existeVertice(vert);
+
+        while(!vert.visitado()) {
+
+
+
+            if (!neighbor.isVisited())
+            buscaEmProfundidade(vert);
+        }
+        
+
+
+        int t = 0; // Inicializar tempo global
+
+        2. para todo vértice v ∈ V(G) faça
+        a. TD[v] ← 0; // Inicializar tempo de descoberta
+        b. TT[v] ← 0; // Inicializar tempo de término
+        c. pai[v] ← null; // Inicializar predecessor ou pai
+
+        3. enquanto existir algum vértice v tal que TD[v] = 0 efetuar
+        a. Executar Busca_Profundidade(v); // Executar busca para raiz v
+
+        --------------------------------------------------------
+
+        1. t ← t + 1; TD[v] ← t; // Definir tempo de descoberta
+
+        2. para todo vértice w ∈ Γ(v) faça // Para toda a vizinhança de v
+
+        a. se TD[w] = 0 então // Se w é visitado pela 1ª vez
+        Visitar aresta {v, w}; // {v, w} é aresta de árvore
+        pai[w] ← v;
+
+        Executar Busca_Profundidade(w);
+
+        b. senão se TT[w] = 0 e w ≠ pai[v] então // Se w for ancestral mas não pai
+        Visitar aresta {v, w}; // {v, w} é aresta de retorno
+
+        3. t ← t + 1; TT[v] ← t; // Definir tempo de término     
+        
+        
+        return ;
     }
 }
