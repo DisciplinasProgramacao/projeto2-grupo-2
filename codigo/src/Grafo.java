@@ -67,7 +67,7 @@ public abstract class Grafo {
             qtdeArestas += vert[i].grau();
         }
 
-        return ordem() + qtdeArestas;
+        return ordem() + (qtdeArestas/2);
     }
 
     public int ordem() {

@@ -25,6 +25,7 @@ public class GrafoTest {
     @BeforeEach
     public void init() {
         grafoPonderado = new GrafoPonderado("Grafo ponderado");
+
     }
 
     @Test
@@ -46,6 +47,7 @@ public class GrafoTest {
 
     @Test
     public void gerarSubGrafoCompleto() {
+        int subGrafoCriado = 0;
         Lista<Vertice> vertices = new Lista<Vertice>();
         GrafoCompleto novoSubGrafo = null;
         Vertice v1 = new Vertice(4);
