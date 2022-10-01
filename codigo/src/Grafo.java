@@ -70,7 +70,7 @@ public abstract class Grafo {
             qtdeArestas += vert[i].grau();
         }
 
-        return ordem() + (qtdeArestas / 2);
+        return ordem() + qtdeArestas;
     }
 
     public int ordem() {

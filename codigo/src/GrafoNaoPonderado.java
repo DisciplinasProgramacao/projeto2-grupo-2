@@ -24,8 +24,10 @@ public class GrafoNaoPonderado extends GrafoMutavel {
         return adicionou;
     }
 
-    /*
+    /**
      *  Subgrafo não ponderado
+     * @param vertices Lista de vertices
+     * @return Subgrafo não ponderado
      */
     public GrafoNaoPonderado subGrafo(Lista<Vertice> vertices) {
   

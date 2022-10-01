@@ -1,6 +1,11 @@
 public class GrafoCompleto extends Grafo {
     private int ordem;
 
+    /**
+     * Método construtor do Grafo Completo
+     * @param nome Nome do grafo
+     * @param ordem Ordem do grafo
+     */
     public GrafoCompleto(String nome, int ordem) {
         super(nome);
         this.ordem = ordem;
@@ -14,11 +19,22 @@ public class GrafoCompleto extends Grafo {
         }
     }
 
+    /**
+     * Método para adiconar um vértice
+     * @param id ID do vértice
+     * @return O status da chamada do método
+     */
     private boolean addVertice(int id) {
         Vertice novo = new Vertice(id);
         return this.vertices.add(id, novo);
     }
 
+     /**
+     * Método para adiconar uma aresta entre dois vértices
+     * @param origem ID vertice de origem da aresta
+     * @param destino ID vertice de destino da aresta
+     * @return O status da chamada do método
+     */
     private boolean addAresta(int origem, int destino) {
     
         boolean adicionou = false;
@@ -39,21 +55,33 @@ public class GrafoCompleto extends Grafo {
         return true;
     }
 
+     /**
+     * Método retornar um vertice a partir do ID
+     * @param idVertice ID vertice 
+     * @return Retorna o vértice
+     */
     public Vertice existeVertice(int idVertice) {
         return this.vertices.find(idVertice);
     }
 
     /**
-     * (Precisa testar)
+     * Método para verificar a existencia de aresta entre dois vertices
      * 
-     * @param verticeA
-     * @param verticeB
-     * @return
+     * @param verticeA O vértice de origem
+     * @param verticeB O vértice de destino
+     * @return Se há ou não aresta entre os vértices
      */
     public Aresta existeAresta(int verticeA, int verticeB) {
         Vertice saida = this.existeVertice(verticeA);
         return saida.existeAresta(verticeB);
     }
+
+    /**
+     * Método verificar se o grafo é euleriano
+     * 
+     * @param grafo Um grafo não poderado
+     * @return Se é ou não euleriano
+     */
 
     public boolean eureliano(GrafoNaoPonderado grafo) {
         //CONDITIONS Fleury's Algoritm 
@@ -109,6 +137,14 @@ public class GrafoCompleto extends Grafo {
         }
         return true;
     }
+
+     /**
+     * Método para gerar um subgrafo
+     * 
+     * @param vertices Uma lista de vertices
+     * @return Um subgrafo
+     */
+    
     
     public GrafoCompleto subGrafo(Lista<Vertice> vertices) {
 

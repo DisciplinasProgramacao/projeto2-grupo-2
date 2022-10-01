@@ -31,18 +31,34 @@ public class Aresta {
         return this.destino;
     }
 
+    /**
+     * Método para visitar uma aresta
+     * @return visitada igual a verdadeiro
+     */
     public void visitar(){
         this.visitada = true;
     }
 
+    /**
+     * Método para limpar visita
+     * @return visitada igual a falso
+     */
     public void limparVisita(){
         this.visitada = false;
     }
 
+    /**
+     * Método para retornar o status 
+     * @return O estado booleano da aresta visitada
+     */
     public boolean visitada(){
         return this.visitada;
     }
 
+     /**
+     * Método get para o destino da aresta
+     * @return O destino da aresta
+     */
     public int getDestino(){
         return this.destino;
     }
