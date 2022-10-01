@@ -77,51 +77,24 @@ public abstract class Grafo {
         return this.vertices.size();
     }
 
-    public Grafo buscaEmProfundidade(Vertice vert) {
+    public void buscaEmProfundidade(Vertice vert) {
 
         Vertice[] vertice = new Vertice[vertices.size()];
         vertices.allElements(vertice);
 
         vert.visitar();
 
-        Vertice vertO = this.existeVertice(vert);
+        Aresta arestaExistente = null;
 
-        while(!vert.visitado()) {
+        for(int i = 0; i < vertice.length; i++) { 
 
+            arestaExistente = existeAresta(vert.getId(), vertice[i].getId());
 
-            buscaEmProfundidade(vert);
+            if(arestaExistente != null && !arestaExistente.visitada()) {
+                arestaExistente.visitar();
+                buscaEmProfundidade(vertice[i]);
+                System.out.println("vertice: " + vert.getId());
+            }
         }
-        
-
-
-        int t = 0; // Inicializar tempo global
-
-        2. para todo vértice v ∈ V(G) faça
-        a. TD[v] ← 0; // Inicializar tempo de descoberta
-        b. TT[v] ← 0; // Inicializar tempo de término
-        c. pai[v] ← null; // Inicializar predecessor ou pai
-
-        3. enquanto existir algum vértice v tal que TD[v] = 0 efetuar
-        a. Executar Busca_Profundidade(v); // Executar busca para raiz v
-
-        --------------------------------------------------------
-
-        1. t ← t + 1; TD[v] ← t; // Definir tempo de descoberta
-
-        2. para todo vértice w ∈ Γ(v) faça // Para toda a vizinhança de v
-
-        a. se TD[w] = 0 então // Se w é visitado pela 1ª vez
-        Visitar aresta {v, w}; // {v, w} é aresta de árvore
-        pai[w] ← v;
-
-        Executar Busca_Profundidade(w);
-
-        b. senão se TT[w] = 0 e w ≠ pai[v] então // Se w for ancestral mas não pai
-        Visitar aresta {v, w}; // {v, w} é aresta de retorno
-
-        3. t ← t + 1; TT[v] ← t; // Definir tempo de término     
-        
-        
-        return ;
     }
 }
