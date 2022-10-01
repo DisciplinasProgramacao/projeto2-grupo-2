@@ -19,9 +19,14 @@ public class Lista<T> {
     }
 
     // validar
-    // public int size() {
-    //     return this.data.size();
-    // }
+     private int size() {
+         return this.data.size();
+     }
+
+     @Override
+     public String toString(){
+        return Integer.toString(size());
+     }
 
 
     // public T get(int i) {

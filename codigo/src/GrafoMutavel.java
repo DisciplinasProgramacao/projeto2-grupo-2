@@ -54,9 +54,12 @@ public abstract class GrafoMutavel extends Grafo {
 
             Vertice vertO = this.existeVertice(vertOrigem);
             Vertice vertD = this.existeVertice(vertDestino);
-                 
-            vertO.addAresta(vertDestino);
-            vertD.addAresta(vertOrigem);
+            
+            if (vertD.existeAresta(vertO.getId()) == null && // se não existe aresta entre os vertices
+              vertO.existeAresta(vertD.getId()) == null){
+              vertO.addAresta(vertDestino);
+            }
+
             linha = br.readLine();
         }
         br.close();
@@ -82,7 +85,6 @@ public abstract class GrafoMutavel extends Grafo {
         bw.newLine();
 
         for(int i = 0; i < ordem(); i++) {
-          if (i == 0 || vert[i].existeAresta(vert[i-1].getId()) == null)
             bw.write(vert[i].toString());    
         }
 

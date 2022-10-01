@@ -71,7 +71,19 @@ public class GrafoTest {
         vertices.add(v2);
         novoSubGrafo = g.subGrafo(vertices);
         assertEquals(2, novoSubGrafo.ordem());
-        novoSubGrafo.salvar(caminhoArquivo + nomeArquivoSalvar);
     } 
+
+    @Test 
+    public void carregarESalvarArquivo() throws Exception{
+        int tamanhoCarregado = 0;
+        int tamanhoSalvo = 0;
+        GrafoNaoPonderado g = new GrafoNaoPonderado("");
+        g.carregar(caminhoArquivo + nomeArquivoLeitura);
+        tamanhoCarregado = g.tamanho();
+        g.salvar(caminhoArquivo + nomeArquivoSalvar);     
+        g.carregar(caminhoArquivo + nomeArquivoSalvar);  
+        tamanhoSalvo = g.tamanho(); 
+        assertEquals(tamanhoSalvo, tamanhoCarregado);     
+    }
 
 }
