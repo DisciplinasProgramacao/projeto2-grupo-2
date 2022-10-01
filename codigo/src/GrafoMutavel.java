@@ -29,12 +29,9 @@ public abstract class GrafoMutavel extends Grafo {
     }
 
     public void carregar(String nomeArquivo) throws Exception {
-
         BufferedReader br = new BufferedReader(new FileReader(nomeArquivo));
 
         String nomeDoGrafo = br.readLine(); //csv file linha 0
-      //  GrafoMutavel auxGraf = new GrafoNaoPonderado(nomeDoGrafo);
-
         this.nome = nomeDoGrafo;
 
         int ordem = Integer.parseInt(br.readLine()); //csv file linha 1
@@ -51,19 +48,17 @@ public abstract class GrafoMutavel extends Grafo {
         linha = br.readLine();
 
         while(linha != null) {
+            splitText = linha.split(";");
+            vertOrigem = Integer.parseInt(splitText[0]);
+            vertDestino = Integer.parseInt(splitText[1]);
 
-                splitText = linha.split(";");
-                vertOrigem = Integer.parseInt(splitText[0]);
-                vertDestino = Integer.parseInt(splitText[1]);
-
-                Vertice vertO = this.existeVertice(vertOrigem);
-                Vertice vertD = this.existeVertice(vertDestino);
+            Vertice vertO = this.existeVertice(vertOrigem);
+            Vertice vertD = this.existeVertice(vertDestino);
                  
-                vertO.addAresta(vertDestino);
-                vertD.addAresta(vertOrigem);
-                linha = br.readLine();
+            vertO.addAresta(vertDestino);
+            vertD.addAresta(vertOrigem);
+            linha = br.readLine();
         }
-
         br.close();
     }
 
@@ -75,24 +70,21 @@ public abstract class GrafoMutavel extends Grafo {
         return false;
     }
 
-    public void salvar(String nomeArquivo) throws IOException {
+    public void salvar(String caminhoArquivo) throws IOException {
 
-        BufferedWriter bw = new BufferedWriter(new FileWriter(nomeArquivo));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoArquivo));
+        Vertice[] vert = new Vertice[vertices.size()];
+        vertices.allElements(vert);
 
-        int ordem = ordem();
+        bw.write(this.nome);
+        bw.newLine();
+        bw.write(Integer.toString(ordem()));
+        bw.newLine();
 
-        bw.write(this.nome + "\n");
-        bw.write(ordem + "\n");
-
-        for(int i = 1; i <= ordem; i++) {
-            
-            //verificar vertice
-
-            for (int j = 1; j <= ordem; j++) {
-                //escrever aresta
-            }
+        for(int i = 0; i < ordem(); i++) {
+          if (i == 0 || vert[i].existeAresta(vert[i-1].getId()) == null)
+            bw.write(vert[i].toString());    
         }
-        bw.write("\n"+ this.nome + "\n" + this.vertices.size()+ "\n" +"" );
 
         bw.close();
     }

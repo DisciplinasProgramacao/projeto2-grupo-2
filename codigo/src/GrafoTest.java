@@ -18,6 +18,9 @@ public class GrafoTest {
 
     static GrafoPonderado grafoPonderado;
     static GrafoCompleto grafoCompleto;
+    static final String caminhoArquivo = "C:/Users/Cliente Vip Infomac/Desktop/PUC/PM/LPM/projeto2-grupo-2/codigo/";
+    static final String nomeArquivoLeitura = "grafos.txt";
+    static final String nomeArquivoSalvar = "novoGrafo.txt";
 
     @BeforeEach
     public void init() {
@@ -38,7 +41,7 @@ public class GrafoTest {
     @Test
     public void carregarGrafo() throws Exception {
         GrafoMutavel g = new GrafoNaoPonderado("Grafo completo");
-        g.carregar("C:/Users/Cliente Vip Infomac/Desktop/PUC/PM/LPM/projeto2-grupo-2/codigo/grafos.txt");
+        g.carregar(caminhoArquivo + nomeArquivoLeitura);
         assertEquals(8, g.tamanho());
     }
 
@@ -60,7 +63,7 @@ public class GrafoTest {
     public void gerarSubGrafoNaoPonderado() throws Exception {
         GrafoNaoPonderado g = new GrafoNaoPonderado("");
         GrafoNaoPonderado novoSubGrafo = null;
-        g.carregar("C:/Users/Cliente Vip Infomac/Desktop/PUC/PM/LPM/projeto2-grupo-2/codigo/grafos.txt");
+        g.carregar(caminhoArquivo + nomeArquivoLeitura);
         Lista<Vertice> vertices = new Lista<Vertice>();
         Vertice v1 = new Vertice(4);
         Vertice v2 = new Vertice(3);
@@ -68,6 +71,7 @@ public class GrafoTest {
         vertices.add(v2);
         novoSubGrafo = g.subGrafo(vertices);
         assertEquals(2, novoSubGrafo.ordem());
+        novoSubGrafo.salvar(caminhoArquivo + nomeArquivoSalvar);
     } 
 
 }

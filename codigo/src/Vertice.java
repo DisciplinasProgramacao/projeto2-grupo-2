@@ -68,4 +68,19 @@ public class Vertice {
     public int getId() {
         return this.id;
     }
+
+    @Override
+    public String toString(){
+        
+        String arestasVerticeAtual = "";
+        Aresta[] arest = new Aresta[arestas.size()];
+
+        arestas.allElements(arest);
+
+        for(int i = 0; i < arest.length; i++){
+          arestasVerticeAtual = this.id + ";" + Integer.toString(arest[i].getDestino()) + '\n';
+        }
+
+        return arestasVerticeAtual;
+    }
 }

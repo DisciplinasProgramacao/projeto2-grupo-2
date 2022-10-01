@@ -43,6 +43,10 @@ public class Aresta {
         return this.visitada;
     }
 
+    public int getDestino(){
+        return this.destino;
+    }
+
     
 
 }
