@@ -20,7 +20,6 @@ public class GrafoNaoPonderado extends GrafoMutavel {
             chegada.addAresta(1, origem);
             adicionou = true;
         }
-
         return adicionou;
     }
 
