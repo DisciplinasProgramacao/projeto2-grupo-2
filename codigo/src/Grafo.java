@@ -17,8 +17,8 @@ public abstract class Grafo {
         this.vertices = new ABB<>();
     }
 
-    public Vertice existeVertice(int idVertice) {
-        return this.vertices.find(idVertice);
+    public Vertice existeVertice(int vert) {
+        return this.vertices.find(vert);
     }
 
     /**
@@ -89,8 +89,6 @@ public abstract class Grafo {
         while(!vert.visitado()) {
 
 
-
-            if (!neighbor.isVisited())
             buscaEmProfundidade(vert);
         }
         
