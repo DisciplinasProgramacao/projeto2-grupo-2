@@ -1,5 +1,3 @@
-import java.util.Iterator;
-import java.util.LinkedList;
 
 /**
  * Classe básica para um Grafo simples

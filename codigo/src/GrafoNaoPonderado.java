@@ -1,5 +1,10 @@
 public class GrafoNaoPonderado extends GrafoMutavel {
 
+    /**
+     * Método construtor Grafo não Ponderado
+     * 
+     * @param nome Nome do Grafo Mutável
+     */
     public GrafoNaoPonderado(String nome) {
         super(nome);
     }
@@ -25,23 +30,24 @@ public class GrafoNaoPonderado extends GrafoMutavel {
     }
 
     /**
-     *  Subgrafo não ponderado
+     * Subgrafo não ponderado
+     * 
      * @param vertices Lista de vertices
      * @return Subgrafo não ponderado
      */
     public GrafoNaoPonderado subGrafo(Lista<Vertice> vertices) {
-  
+
         GrafoNaoPonderado subGrafoNPonderado = new GrafoNaoPonderado(this.nome);
 
         Vertice[] vert = new Vertice[Integer.parseInt(vertices.toString())];
         vertices.allElements(vert);
 
-       for (int i = 1; i <= this.ordem(); i++){
-          for (int y = 0; y < vertices.allElements(vert).length; y++){
-            if (vert[y].getId() == this.vertices.find(i).getId())
-            subGrafoNPonderado.vertices.add(y, this.vertices.find(i));
-          }
-       }
+        for (int i = 1; i <= this.ordem(); i++) {
+            for (int y = 0; y < vertices.allElements(vert).length; y++) {
+                if (vert[y].getId() == this.vertices.find(i).getId())
+                    subGrafoNPonderado.vertices.add(y, this.vertices.find(i));
+            }
+        }
         return subGrafoNPonderado;
     }
 }

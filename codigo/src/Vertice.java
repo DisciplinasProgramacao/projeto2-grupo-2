@@ -53,18 +53,33 @@ public class Vertice {
         return this.arestas.size();
     }
 
+
+    /**
+     * Visitar um vértice
+     */
     public void visitar() {
         this.visitado = true;
     }
 
+    /**
+     * limpar Visita de um  vértice
+     */
     public void limparVisita() {
         this.visitado = false;
     }
 
+     /**
+     * Verificar se um vértice foi visitado
+     * @return TRUE se foi visitado FALSE se não
+     */
     public boolean visitado() {
         return this.visitado;
     }
 
+    /**
+     * Pegar o id do vértice
+     * @return o ID do vértice
+     */
     public int getId() {
         return this.id;
     }

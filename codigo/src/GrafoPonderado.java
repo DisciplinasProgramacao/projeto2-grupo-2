@@ -1,10 +1,12 @@
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Scanner;
 
 public class GrafoPonderado extends GrafoMutavel {
+    /**
+     * Método construtor Grafo não Ponderado
+     * 
+     * @param nome Nome do Grafo Mutável
+     */
 
     public GrafoPonderado(String nome) {
         super(nome);
@@ -43,19 +45,32 @@ public class GrafoPonderado extends GrafoMutavel {
         return addAresta(origem, destino, 1);
     }
 
+    /**
+     * Método para gerar um subgrafo
+     * 
+     * @param vertices Uma lista de vertices
+     * @return Um subgrafo
+     */
+
     public GrafoPonderado subGrafo(Lista<Vertice> vertices) {
         GrafoPonderado subgrafo = new GrafoPonderado("Subgrafo de " + this.nome);
         return subgrafo;
     }
 
+    /**
+     * Método carregar grafos a partir de um arquivo
+     * próximo id disponível.
+     * 
+     * @param nomeArquivo Caminho do arquivo txt
+     */
     public void carregar(String nomeArquivo) throws Exception {
 
         BufferedReader br = new BufferedReader(new FileReader(nomeArquivo));
 
-        String nomeDoGrafo = br.readLine(); //csv file linha 0
+        String nomeDoGrafo = br.readLine(); // csv file linha 0
         GrafoMutavel auxGraf = new GrafoNaoPonderado(nomeDoGrafo);
 
-        int ordem = Integer.parseInt(br.readLine()); //csv file linha 1
+        int ordem = Integer.parseInt(br.readLine()); // csv file linha 1
 
         for (int i = 1; i <= ordem; i++) {
             auxGraf.addVertice(i);
@@ -66,9 +81,8 @@ public class GrafoPonderado extends GrafoMutavel {
         int vertOrigem;
         int vertDestino;
 
-
-        while(br.readLine() != null) {
-            if(linha != null) {
+        while (br.readLine() != null) {
+            if (linha != null) {
 
                 splitText = linha.split(";");
                 vertOrigem = Integer.parseInt(splitText[0]);
@@ -76,7 +90,7 @@ public class GrafoPonderado extends GrafoMutavel {
 
                 Vertice vertO = auxGraf.existeVertice(vertOrigem);
                 Vertice vertD = auxGraf.existeVertice(vertDestino);
-                 
+
                 vertO.addAresta(vertDestino);
                 vertD.addAresta(vertOrigem);
             }

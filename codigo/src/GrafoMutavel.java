@@ -6,28 +6,41 @@ import java.io.IOException;
 
 public abstract class GrafoMutavel extends Grafo {
 
+     /**
+     * Método construtor Grafo Mutável
+     * @param nome Nome do Grafo Mutável
+     */
+
     public GrafoMutavel(String nome) {
         super(nome);
     }
 
     /**
-     * Adiciona uma aresta entre dois vértices do grafo.
+     * Método para adicionar uma aresta entre dois vértices do grafo.
      * Não verifica se os vértices pertencem ao grafo.
      * 
      * @param origem  Vértice de origem
      * @param destino Vértice de destino
      */
+
     public abstract boolean addAresta(int origem, int destino);
 
     /**
-     * Adiciona, se possível, um vértice ao grafo. O vértice é auto-nomeado com o
+     * Método para adicionar, se possível, um vértice no grafo. O vértice é auto-nomeado com o
      * próximo id disponível.
+     * @param id do vértice
+     * @return Se o vértice foi adicionado
      */
     public boolean addVertice(int id) {
         Vertice novo = new Vertice(id);
         return this.vertices.add(id, novo);
     }
 
+    /**
+     * Método carregar grafos a partir de um arquivo
+     * próximo id disponível.
+     * @param nomeArquivo Caminho do arquivo txt
+     */
     public void carregar(String nomeArquivo) throws Exception {
         BufferedReader br = new BufferedReader(new FileReader(nomeArquivo));
 
@@ -65,13 +78,32 @@ public abstract class GrafoMutavel extends Grafo {
         br.close();
     }
 
+     /**
+     * Método deletar aresta entre dois vértices
+     * @param origem Vértice de origem
+     * @param destino Vértice de destino
+     * @return Se foi deletada ou não
+     */
+
     public boolean delAresta(int origem, int destino) {
         return false;
     }
 
+    /**
+     * Método deletar um vértice
+     * @param idVertice O ID do vértice
+     * @return Se foi deletado ou não
+     */
+
     public boolean delVertice(int idVertice) {
         return false;
     }
+
+    /**
+     * Método para salvar o grafo no arquivo
+     * @param caminhoArquivo  Caminho do arquivo txt
+     */
+
 
     public void salvar(String caminhoArquivo) throws IOException {
 
