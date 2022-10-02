@@ -29,7 +29,4 @@ public class Lista<T> {
      }
 
 
-    // public T get(int i) {
-    //     return this.data.peekFirst();
-    // }
 }

@@ -20,11 +20,9 @@ public abstract class Grafo {
     }
 
     /**
-     * (Precisa testar)
-     * 
+     * Método para verificar a existência entre dois vertices de um grafo
      * @param verticeA
      * @param verticeB
-     * @return
      */
     public Aresta existeAresta(int verticeA, int verticeB) {
         Vertice saida = this.existeVertice(verticeA);
@@ -96,21 +94,24 @@ public abstract class Grafo {
         }
     }
 
-    public Boolean caminhoEntreVertices(Vertice vert1, Vertice vert2) {
+    public boolean caminhoEntreVertices(Vertice vert1, Vertice vert2) {
         Vertice[] vertice = new Vertice[vertices.size()];
         vertices.allElements(vertice);
 
         Aresta arestaExistente = null;
 
         for (int i = 0; i < vertice.length; i++) {
+            System.out.println("Valor: "+i);
             arestaExistente = existeAresta(vert1.getId(), vertice[i].getId());
 
+            //Essa condição é o que tá dando problema
             if (vert2.getId() == vertice[i].getId())
                 return true;
 
             if (arestaExistente != null && !arestaExistente.visitada() && !vertice[i].visitado()) {        
                 arestaExistente.visitar();
-                System.out.println(vertice[i]);
+                System.out.println(vertice[i-1]);
+                
                 caminhoEntreVertices(vertice[i], vert2);
             }
         }

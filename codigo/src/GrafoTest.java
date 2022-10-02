@@ -18,7 +18,7 @@ public class GrafoTest {
 
     static GrafoPonderado grafoPonderado;
     static GrafoCompleto grafoCompleto;
-    static final String caminhoArquivo = "C:/Users/Cliente Vip Infomac/Desktop/PUC/PM/LPM/projeto2-grupo-2/codigo/";
+    static final String caminhoArquivo = "C:/Users/bruno/OneDrive/Documentos/folder/projeto2-grupo-2/codigo/";
     static final String nomeArquivoLeitura = "grafos.txt";
     static final String nomeArquivoSalvar = "novoGrafo.txt";
 
